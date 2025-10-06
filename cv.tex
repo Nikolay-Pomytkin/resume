@@ -1,48 +1,56 @@
 \documentclass[10pt]{article}
 
-% ---------- KNOBS: adjust these three lines to tune white space ----------
-\newcommand{\sectionBefore}{2pt}   % vertical space BEFORE section titles
-\newcommand{\sectionAfter}{0pt}    % vertical space AFTER section titles
-\newcommand{\bulletSep}{1pt}       % itemize: space between bullets (0–2pt works well)
-% ------------------------------------------------------------------------
+% ---------- KNOBS ----------
+\newcommand{\sectionBefore}{2pt}   % space BEFORE section titles
+\newcommand{\sectionAfter}{0pt}    % space AFTER section titles
+\newcommand{\bulletSep}{1pt}       % space between bullets
+% ---------------------------
 
 \usepackage[margin=0.65in]{geometry}
 \usepackage[T1]{fontenc}
-% \usepackage{helvet}
-% \renewcommand{\familydefault}{\sfdefault}
-\usepackage{helvet} % keep available for headings only
-% \titleformat{\section}{\sffamily\large\bfseries}{}{0pt}{}
-
+\usepackage{helvet}
+% \renewcommand{\familydefault}{\sfdefault} % remove these two lines if you prefer serif body
 \usepackage[hidelinks]{hyperref}
 \usepackage{enumitem}
 \usepackage{titlesec}
 
-% Tighten vertical rhythm
+% Tight vertical rhythm
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
 \raggedbottom
 
-% Section spacing + style
-\titleformat{\section}{\large\bfseries}{}{0pt}{}
-\titlespacing*{\section}{0pt}{\sectionBefore}{\sectionAfter}
-
+% Section style + a rule underneath the title
+% \titleformat{\section}
+%   {\large\bfseries}{}{0pt}{}[\vspace{-2pt}\titlerule]
+% \titlespacing*{\section}{0pt}{\sectionBefore}{\sectionAfter}
+\titleformat{\section}
+  {\large\bfseries}{}{0pt}{}%
+  [\vspace{-1.5pt}\titlerule\vspace{-2.5pt}] % ← increase the 8pt if you want more gap
 % List spacing: compact but readable
 \setlist[itemize]{leftmargin=1.2em, topsep=2pt, itemsep=\bulletSep, parsep=0pt, partopsep=0pt}
 
 \begin{document}
 
-{\LARGE \textbf{Nikolay Pomytkin}}\\[-1pt]
-\href{mailto:nik@pomytkin.com}{nik@pomytkin.com} \textbar{} \href{http://nikolay.pomytkin.com}{nikolay.pomytkin.com} \textbar{} \href{http://github.com/Nikolay-Pomytkin}{github.com/Nikolay-Pomytkin} \textbar{} \href{http://linkedin.com/in/Nikolay-Pomytkin}{linkedin.com/in/Nikolay-Pomytkin}
+% ---------- Header centered ----------
+\begin{center}
+  {\LARGE \textbf{Nikolay Pomytkin}}\\[-1pt]
+  \href{mailto:nik@pomytkin.com}{nik@pomytkin.com} \textbar{}
+  \href{http://nikolay.pomytkin.com}{nikolay.pomytkin.com} \textbar{}
+  \href{http://github.com/Nikolay-Pomytkin}{github.com/Nikolay-Pomytkin} \textbar{}
+  \href{http://linkedin.com/in/Nikolay-Pomytkin}{linkedin.com/in/Nikolay-Pomytkin}
+\end{center}
 \vspace{2pt}
+% -------------------------------------
 
 \section*{EDUCATION}
-\textbf{University of Maryland, College Park} (Dual-degree) \hfill \textbf{Aug. 2018 -- May 2022}\\
-B.S. Computer Science (Major GPA: 3.56) \hfill B.A. Economics (Major GPA: 3.64)
+\textbf{University of Maryland, College Park} (Dual-degree) \hfill \textbf{Aug.\ 2018 -- May\ 2022}\\
+B.S.\ Computer Science \hfill Major GPA: 3.56\\
+B.A.\ Economics \hfill Major GPA: 3.64
 
 \section*{EXPERIENCE}
 
 \textbf{Clad (YC W23)} \hfill New York, NY\\
-\emph{Software Engineer} \hfill \textbf{Nov. 2024 -- May 2025}
+\emph{Software Engineer} \hfill \textbf{Nov.\ 2024 -- May\ 2025}
 \begin{itemize}
   \item Led full-stack feature development for a Remix/React platform backed by PostgreSQL, streamlining subcontractor compliance, inventory, and field data capture; reduced administrative costs for telecom construction customers by hundreds of thousands of dollars annually across accounts.
   \item Designed a multi-tenant compliance rules engine and scheduler to detect expiring documentation against client-specific policies; implemented alerting and structured remediation workflows with audit trails, eliminating manual tracking and shortening compliance cycle time.
@@ -51,32 +59,29 @@ B.S. Computer Science (Major GPA: 3.56) \hfill B.A. Economics (Major GPA: 3.64)
 \end{itemize}
 
 \textbf{Capital One} \hfill New York, NY\\
-\emph{Senior Associate Software Engineer (Delivery Experience)} \hfill \textbf{Aug. 2023 -- Oct. 2024}
+\emph{Senior Associate Software Engineer (Delivery Experience)} \hfill \textbf{Aug.\ 2023 -- Oct.\ 2024}
 \begin{itemize}
   \item Developed load balancing for an automated PR creation tool (Java, Spring Boot, Angular) handling Docker image and library updates; reduced peak load on the enterprise GitHub instance by \textbf{40\%} during release surges.
   \item Led team disaster recovery simulations, coordinating migration of application services between AWS regions within a 10-minute RTO target.
 \end{itemize}
-\emph{Associate Software Engineer (Cloud Infrastructure Automation)} \hfill \textbf{Aug. 2022 -- Aug. 2023}
+\emph{Associate Software Engineer (Cloud Infrastructure Automation)} \hfill \textbf{Aug.\ 2022 -- Aug.\ 2023}
 \begin{itemize}
   \item Modernized legacy internal tooling by leading a migration from JavaScript to \textbf{TypeScript} and from Webpack to \textbf{Vite}, with upgrades to \textbf{React Router v6} and \textbf{Vitest}; improved build reliability and developer experience, saving \textbf{hundreds of engineer hours annually} in debugging and CI iteration.
   \item Built a full-stack web app (React, Express, TypeScript) automating provisioning of AWS resources, reducing manual setup time from hours to minutes for infra teams.
   \item Shipped an internal metrics dashboard (Chart.js, AWS) visualizing resource utilization and compliance; improved transparency and reduced turnaround time for provisioning requests by \textbf{15\%}.
 \end{itemize}
-
-\textbf{Clarissa.ai} \hfill New York, NY\\
-\emph{Co-founder, CTO} \hfill \textbf{Apr. 2020 -- Aug. 2020}
-\begin{itemize}
-  \item Led a team of 5 engineers building \href{https://clarissa.ai}{clarissa.ai}, an intelligent medical assistant with symptom recognition (NLP), illness tracking/triage, and a patient–doctor connection platform.
-  \item Architected and deployed a full-stack web application with a React.js frontend and a RESTful Flask API.
-\end{itemize}
-
 \textbf{University of Maryland} \hfill College Park, MD\\
-\emph{Head Teaching Assistant:} Object-Oriented Programming I \& II \hfill \textbf{Aug. 2021 -- May 2022}\\
-\emph{Head Instructor:} Building Web Apps with Python and Flask \hfill \textbf{Jan. 2020 -- May 2022}\\
-\emph{Teaching Assistant:} Global Economics, Engineering Ethics, Object-Oriented Programming \hfill \textbf{Aug. 2019 -- May 2021}
-
+\emph{Head Teaching Assistant:} Object-Oriented Programming I \& II \hfill \textbf{Aug.\ 2021 -- May\ 2022}
+\begin{itemize}
+  \item Led discussions, assisted in writing quizzes/exams, held office hours, coordinated course management work among 10 teaching assistants.
+\end{itemize}
+\emph{Head Instructor:} Building Web Apps with Python and Flask \hfill \textbf{Jan.\ 2020 -- May\ 2022}
+\begin{itemize}
+\item Taught students the full flow of creating a web application with Python and the Flask web framework
+\end{itemize}
+\emph{Teaching Assistant:} Global Economics, Engineering Ethics, Object-Oriented Programming \hfill \textbf{Aug.\ 2019 -- May\ 2021} \\
 \textbf{The Depository Trust \& Clearing Corporation} \hfill Jersey City, NJ\\
-\emph{Infrastructure Engineering Intern} \hfill \textbf{May -- Aug. 2019}
+\emph{Infrastructure Engineering Intern} \hfill \textbf{May -- Aug.\ 2019}
 \begin{itemize}
   \item Built a Python/Flask web dashboard enabling support admins to execute scripts and monitor logs on 100+ remote servers from a centralized interface.
   \item Hardened log monitoring shell scripts to cut missing-log incidents and eliminate recurring 3-hour report delays.
@@ -88,12 +93,19 @@ B.S. Computer Science (Major GPA: 3.56) \hfill B.A. Economics (Major GPA: 3.64)
 \textbf{Tooling:} Vite, Vitest, Chart.js, Git, Jenkins, Docker, Jira \quad \textbf{Cloud:} AWS (Elastic Beanstalk, EC2, Lambda, DynamoDB, RDS, ECS)
 
 \section*{LEADERSHIP EXPERIENCE}
+\textbf{Clarissa.ai} \hfill New York, NY\\
+\emph{Co-founder, CTO} \hfill \textbf{Apr.\ 2020 -- Aug.\ 2020}
+\begin{itemize}
+  \item Led a team of 5 engineers building \href{https://clarissa.ai}{clarissa.ai}, an intelligent medical assistant with symptom recognition (NLP), illness tracking/triage, and a patient–doctor connection platform.
+  \item Architected and deployed a full-stack web application with a React.js frontend and a RESTful Flask API.
+\end{itemize}
 \textbf{Bitcamp} — University of Maryland’s Flagship Hackathon \hfill College Park, MD\\
-\emph{Director of Internal Sponsorship and Finance} \hfill \textbf{Jun. 2019 -- Aug. 2021}\\
+\emph{Director of Internal Sponsorship and Finance} \hfill \textbf{Jun.\ 2019 -- Aug.\ 2021}\\
 Led fundraising and finance for Bitcamp 2021; primary point of contact for UMD-affiliated corporate partners.
 
 \section*{AWARDS}
-\textbf{University of Maryland, College Park:} President’s Scholar, CMNS Dean’s List (Dec. 2018 -- May 2022) \\
+\textbf{University of Maryland, College Park:} President’s Scholar, CMNS Dean’s List (Dec.\ 2018 -- May\ 2022) \\
 \textbf{HackRU 2019 (Rutgers University):} Overall Winner, Best AI Hack — \emph{Moody} (facial-expression mood logging)
+\textbf{NYU Innovention Competition:} Semifinalist — \emph{Clarissa} (Spring 2020)
 
 \end{document}
